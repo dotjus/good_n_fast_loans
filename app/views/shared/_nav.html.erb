@@ -1,0 +1,21 @@
+<nav style="border:2px solid #98d2ff; padding: 5px;"> 
+
+    <h1 style="color:#98d2ff"> Good 'n' Fast Loans </h1>
+
+    <% if user_signed_in? %>
+        <%= link_to "Home", root_path %> | 
+        My Listings | 
+        My Hires | 
+        <%= link_to "Sign Out", destroy_user_session_path, method: "delete" %>
+        <br>
+        <br>
+        <span class='nav-greeting'> <%= "Welcome back, #{current_user.email}"%> </span>
+        
+
+    <% else %> 
+        <%= link_to "Home", root_path %>
+        <%= link_to "Sign In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+    <% end %>
+
+</nav>
