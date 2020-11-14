@@ -1,2 +1,0 @@
-class Postcode < ApplicationRecord
-end
