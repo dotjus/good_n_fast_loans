@@ -14,6 +14,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
+    @user = current_user
     @listing = Listing.new
   end
 
