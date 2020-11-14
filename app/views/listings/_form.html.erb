@@ -31,18 +31,37 @@
     <%= form.text_field :cost %>
   </div>
 
-  <div class="field"> 
-    <%= form.label :user_id  %> 
-    <%= form.text_field :user_id , value: @user.id, :disabled => true  %>
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id , value: @user, :disabled => true  %>
   </div>
 
   <div class="field">
-    <%= form.label :address_id %>
-    <%= form.text_field :address_id %>
+    <%= form.label :street_number %>
+    <%= form.number_field :street_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street_name %>
+    <%= form.text_field :street_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postcode %>
+    <%= form.number_field :postcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
-  
 <% end %>

@@ -6,7 +6,11 @@ class CreateListings < ActiveRecord::Migration[6.0]
       t.string :duration
       t.decimal :cost
       t.references :user, null: false, foreign_key: true
-      t.references :address, null: false, foreign_key: true
+      t.integer :street_number
+      t.string :street_name
+      t.string :city
+      t.integer :postcode
+      t.string :state
 
       t.timestamps
     end

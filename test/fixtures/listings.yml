@@ -6,7 +6,11 @@ one:
   duration: MyString
   cost: 9.99
   user: one
-  address: one
+  street_number: 1
+  street_name: MyString
+  city: MyString
+  postcode: 1
+  state: MyString
 
 two:
   name: MyString
@@ -14,4 +18,8 @@ two:
   duration: MyString
   cost: 9.99
   user: two
-  address: two
+  street_number: 1
+  street_name: MyString
+  city: MyString
+  postcode: 1
+  state: MyString

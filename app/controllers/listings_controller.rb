@@ -14,7 +14,8 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    @user = current_user
+    user = current_user
+    @user = user.id
     @listing = Listing.new
   end
 
@@ -70,6 +71,6 @@ class ListingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :duration, :cost, :user_id, :address_id)
+      params.require(:listing).permit(:name, :description, :duration, :cost, :user_id, :street_number, :street_name, :city, :postcode, :state)
     end
 end

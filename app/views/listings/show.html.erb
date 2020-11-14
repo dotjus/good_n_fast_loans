@@ -26,8 +26,28 @@
 </p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @listing.address_id %>
+  <strong>Street number:</strong>
+  <%= @listing.street_number %>
+</p>
+
+<p>
+  <strong>Street name:</strong>
+  <%= @listing.street_name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @listing.city %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @listing.postcode %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @listing.state %>
 </p>
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |

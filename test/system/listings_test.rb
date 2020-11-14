@@ -14,11 +14,15 @@ class ListingsTest < ApplicationSystemTestCase
     visit listings_url
     click_on "New Listing"
 
-    fill_in "Address", with: @listing.address_id
+    fill_in "City", with: @listing.city
     fill_in "Cost", with: @listing.cost
     fill_in "Description", with: @listing.description
     fill_in "Duration", with: @listing.duration
     fill_in "Name", with: @listing.name
+    fill_in "Postcode", with: @listing.postcode
+    fill_in "State", with: @listing.state
+    fill_in "Street name", with: @listing.street_name
+    fill_in "Street number", with: @listing.street_number
     fill_in "User", with: @listing.user_id
     click_on "Create Listing"
 
@@ -30,11 +34,15 @@ class ListingsTest < ApplicationSystemTestCase
     visit listings_url
     click_on "Edit", match: :first
 
-    fill_in "Address", with: @listing.address_id
+    fill_in "City", with: @listing.city
     fill_in "Cost", with: @listing.cost
     fill_in "Description", with: @listing.description
     fill_in "Duration", with: @listing.duration
     fill_in "Name", with: @listing.name
+    fill_in "Postcode", with: @listing.postcode
+    fill_in "State", with: @listing.state
+    fill_in "Street name", with: @listing.street_name
+    fill_in "Street number", with: @listing.street_number
     fill_in "User", with: @listing.user_id
     click_on "Update Listing"
 
