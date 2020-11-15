@@ -23,7 +23,12 @@
         <td><%= listing.cost %></td>
         <td><%= listing.city %>, <%= listing.state %></td>
         <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+
+        <% if user_signed_in? && current_user.has_role?(:admin) %>
+          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
