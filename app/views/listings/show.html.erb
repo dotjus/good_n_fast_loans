@@ -50,6 +50,14 @@
   <%= @listing.state %>
 </p>
 
+<% if @listing.image.attached? == true %>
+  <p>
+    <strong> </strong>
+    <%= cl_image_tag(@listing.image.key, crop: :scale, width: 500, cloud_name: 'dotjus') %>
+  </p>
+<% end %>
+
+
 <%= link_to 'Back', listings_path %>
 
 <% if user_signed_in? %> |

@@ -32,3 +32,10 @@ local:
 #   service: Mirror
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
+
+cloudinary:
+## Details from cloudinary dashboard
+  service: Cloudinary 
+  cloud_name: dotjus
+  api_key: 897885267524718
+  api_secret: bNyqs__7_PEiIwTGo2cnX24tKDo

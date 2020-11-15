@@ -10,6 +10,7 @@
       <th>Duration</th>
       <th>Cost</th>
       <th>Location</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +23,11 @@
         <td><%= listing.duration %></td>
         <td><%= listing.cost %></td>
         <td><%= listing.city %>, <%= listing.state %></td>
+
+        <% if listing.image.attached? == true %>
+          <td> <%= cl_image_tag(listing.image.key, crop: :scale, width: 100, cloud_name: 'dotjus') %> </td>
+        <% end %>
+
         <td><%= link_to 'Show', listing %></td>
 
         <% if user_signed_in? && current_user.has_role?(:admin) %>

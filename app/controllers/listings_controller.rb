@@ -79,7 +79,7 @@ class ListingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :duration, :cost, :user_id, :street_number, :street_name, :city, :postcode, :state)
+      params.require(:listing).permit(:name, :description, :duration, :cost, :user_id, :street_number, :street_name, :city, :postcode, :state, :image)
     end
 
     def check_signed_in
