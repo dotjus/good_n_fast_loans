@@ -28,18 +28,18 @@
 
   <div class="field">
     <%= form.label :cost %>
-    <%= form.text_field :cost %>
+    <%= form.number_field :cost, min:0 %>
   </div>
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id , value: @user, :disabled => true  %>
+    <%= form.number_field :user_id , value: @user.id %>
   </div>
 
 
   <div class="field">
     <%= form.label :street_number %>
-    <%= form.number_field :street_number %>
+    <%= form.number_field :street_number, min:0 %>
   </div>
 
   <div class="field">
