@@ -50,5 +50,10 @@
   <%= @listing.state %>
 </p>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
+
+<% if user_signed_in? %> |
+<td><%= link_to 'Edit', edit_listing_path(@listing) %></td> | 
+<td><%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+<% end %>
+
