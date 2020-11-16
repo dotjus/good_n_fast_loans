@@ -5,6 +5,12 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     @listings = Listing.all
+    @un_borrowed_listings = []
+    @listings.each do |listing|
+      if listing.users == []
+        @un_borrowed_listings << listing
+      end  
+    end
   end
 
   # GET /listings/1
