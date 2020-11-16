@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<% if user_signed_in? && !current_user.has_role?(:lender, @listing) %> 
+  <p style="background-color: #343434; padding: 10px 18px; text-align: center; display: inline-block;">
+  <%= link_to 'BORROW!', root_path %></p> 
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @listing.name %>
@@ -57,11 +62,11 @@
   </p>
 <% end %>
 
-
 <%= link_to 'View all listings', listings_path %>
 
 <% if user_signed_in? && current_user.has_role?(:lender, @listing) %> |
-<td><%= link_to 'Edit', edit_listing_path(@listing) %></td> | 
-<td><%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+  <td><%= link_to 'Edit', edit_listing_path(@listing) %></td> | 
+  <td><%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
 <% end %>
+
 <br>

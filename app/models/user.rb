@@ -5,7 +5,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :listings
+  
+  has_many :loans
+  has_many :listings, through: :loans
 
   def assign_default_role
     self.add_role(:client)
