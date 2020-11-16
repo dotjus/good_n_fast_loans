@@ -76,7 +76,18 @@ class ListingsController < ApplicationController
 
 
   def borrow
+    @user = current_user.id
+    # user = current_user
+    # @user_id = user.id
+  end
 
+  def borrowed
+    user_id = current_user.id
+    User.find_by(id: user_id).listings << Listing.find(params[:id])
+
+    flash[:alert] = "Congrats on your hire!"
+
+    redirect_to :my_hires
   end
 
   private

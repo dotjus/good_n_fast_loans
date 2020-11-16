@@ -3,3 +3,9 @@
 <h4> Join User & listings tables through Loans table. </h4>
 
 <h4> Remove the listing from All listings page.</h4>
+
+<% if user_signed_in? && !current_user.has_role?(:lender, @listing) %> 
+  <p style="background-color: #343434; padding: 10px 18px; text-align: center; display: inline-block;">
+  <%= link_to 'Lets Commit Batch!', :borrowed, data: { confirm: 'Are you sure?' } %></p> 
+<% end %>
+

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :listings
   get 'listings/borrow/:id', to: 'listings#borrow', as: 'borrow' 
+  get 'listings/borrowed/:id', to: 'listings#borrowed', as: 'borrowed' 
   devise_for :users
   get 'pages/home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
