@@ -25,7 +25,7 @@
         <td><%= listing.city %>, <%= listing.state %></td>
 
         <% if listing.image.attached? == true %>
-          <td> <%= cl_image_tag(listing.image.key, crop: :scale, width: 100, cloud_name: 'dotjus') %> </td>
+          <td> <%= cl_image_tag(listing.image.key, crop: :fill, width: 100, height: 100, cloud_name: 'dotjus') %> </td>
         <% end %>
 
         <td><%= link_to 'Show', listing %></td>

@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.number_field :user_id , value: @user.id %>
+    <%= form.number_field :user_id , value: @user.id,:readonly => true %>
   </div>
 
 
@@ -70,4 +70,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+  
 <% end %>

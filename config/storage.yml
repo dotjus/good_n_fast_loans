@@ -37,5 +37,5 @@ cloudinary:
 ## Details from cloudinary dashboard
   service: Cloudinary 
   cloud_name: <%= ENV['CLOUDINARY_CLOUDNAME'] %>
-  pi_key: <%= ENV['CLOUDINARY_APIKEY'] %>
+  api_key: <%= ENV['CLOUDINARY_APIKEY'] %>
   api_secret: <%= ENV['CLOUDINARY_SECRET'] %>
