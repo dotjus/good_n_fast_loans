@@ -4,6 +4,7 @@
 
     <% if user_signed_in? %>
         <%= link_to "Home", root_path %> | 
+        <%= link_to "New Listing", new_listing_path %> |
         <%= link_to "My Listings", :my_listings %> |
         <%= link_to "My Hires", :my_hires %> |
         <%= link_to "Sign Out", destroy_user_session_path, method: "delete" %>

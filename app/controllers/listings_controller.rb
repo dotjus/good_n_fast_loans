@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    
   end
 
   # GET /listings/new
@@ -17,13 +18,12 @@ class ListingsController < ApplicationController
     check_signed_in
     @user = current_user
     @listing = Listing.new
-    
-
   end
 
   # GET /listings/1/edit
   def edit
     check_signed_in
+    check_edit_permisions
     @user = current_user
   end
 
@@ -34,9 +34,9 @@ class ListingsController < ApplicationController
     @user = current_user
     @listing = Listing.new(listing_params)
 
-
     respond_to do |format|
       if @listing.save
+        ## Assigns the role of lender to the current user for the item just created.
         @user.add_role :lender, Listing.last
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render :show, status: :created, location: @listing }
@@ -89,6 +89,13 @@ class ListingsController < ApplicationController
       if !user_signed_in?
         flash[:alert] = "Please sign up to create and edit your own listings."
         redirect_to new_user_registration_path
+      end
+    end
+
+    def check_edit_permisions
+      if !current_user.has_role?(:lender, @listing)
+        flash[:alert] = "You do not have permisions to edit this listing."
+        redirect_to root_path
       end
     end
 end
