@@ -36,6 +36,6 @@ local:
 cloudinary:
 ## Details from cloudinary dashboard
   service: Cloudinary 
-  cloud_name: dotjus
-  api_key: 897885267524718
-  api_secret: bNyqs__7_PEiIwTGo2cnX24tKDo
+  cloud_name: <%= ENV['CLOUDINARY_CLOUDNAME'] %>
+  pi_key: <%= ENV['CLOUDINARY_APIKEY'] %>
+  api_secret: <%= ENV['CLOUDINARY_SECRET'] %>
