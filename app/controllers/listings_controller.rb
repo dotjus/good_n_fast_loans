@@ -16,6 +16,10 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    # if Listing.find(current_user.id).users == nil
+    #   @user_borrowing = "8===D"
+    # end
+    @user_borrowing = User.find(current_user.id).listings
     
   end
 
@@ -90,6 +94,10 @@ class ListingsController < ApplicationController
   def borrowed
     user_id = current_user.id
     User.find_by(id: user_id).listings << Listing.find(params[:id])
+
+    # Make borrower a borrower in rolify
+    @user = current_user
+    @user.add_role :borrower, Listing.find(params[:id])
 
     flash[:alert] = "Congrats on your hire!"
 
