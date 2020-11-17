@@ -15,7 +15,9 @@
     </thead>
   
     <tbody>
+      
       <% @my_borrowing.each do |borrow| %>
+        <tr>
             <td><%= borrow.name %></td>
             <td><%= borrow.description %></td>
             <td><%= borrow.duration %></td>
@@ -27,8 +29,9 @@
             <% end %>
             
             <td><%= link_to 'Show', borrow %></td>
-
+          </tr>
       <% end %>
+    
     </tbody>
   </table>
 
@@ -51,6 +54,7 @@
   
     <tbody>
       <% @my_loans.each do |loan| %>
+        <tr>
             <td><%= loan.name %></td>
             <td><%= loan.description %></td>
             <td><%= loan.duration %></td>
@@ -63,6 +67,7 @@
             
             <td><%= link_to 'Show', loan %></td>
             <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

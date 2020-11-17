@@ -22,7 +22,6 @@ class ListingsController < ApplicationController
     #   @user_borrowing = "8===D"
     # end
     @user_borrowing = User.find(current_user.id).listings
-    
   end
 
   # GET /listings/new
@@ -121,12 +120,18 @@ class ListingsController < ApplicationController
   end
 
   def pay_success
+
+    # Link borrower to the item via the joining table Loans
     user_id = current_user.id
     User.find_by(id: user_id).listings << Listing.find(params[:id])
 
-    # Make borrower a borrower in rolify
+    # Make borrower a borrower in rolify for this item
     @user = current_user
     @user.add_role :borrower, Listing.find(params[:id])
+
+    # Make owner of item the loaner in rolify
+    @loaner = Listing.find(params[:id]).user
+    @loaner.add_role :loaner, Listing.find(params[:id])
 
     flash[:alert] = "Congrats on your hire!"
 
