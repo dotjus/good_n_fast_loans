@@ -1,6 +1,8 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:pay]
 
+  before_action :set_listing, only: [:show, :edit, :update, :destroy, :pay, :borrow, :borrowed]
+  
   # GET /listings
   # GET /listings.json
   def index
@@ -92,6 +94,33 @@ class ListingsController < ApplicationController
   end
 
   def borrowed
+
+  end
+
+  def pay
+    Stripe.api_key = ENV['STRIPE_API_KEY']
+    session = Stripe::Checkout::Session.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      success_url: pay_success_url(params[:id]),
+      cancel_url: pay_cancel_url(params[:id]),
+      line_items: [
+        {
+          price_data: {
+            currency: 'aud',
+            product_data: {
+              name: @listing.name
+            },
+            unit_amount: (@listing.cost * 100).to_i
+          },
+          quantity: 1
+        }
+      ]
+    })
+    render json:session
+  end
+
+  def pay_success
     user_id = current_user.id
     User.find_by(id: user_id).listings << Listing.find(params[:id])
 
@@ -102,6 +131,10 @@ class ListingsController < ApplicationController
     flash[:alert] = "Congrats on your hire!"
 
     redirect_to :my_hires
+  end
+
+  def pay_cancel
+
   end
 
   private

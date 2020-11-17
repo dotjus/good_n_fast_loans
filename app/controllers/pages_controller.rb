@@ -10,8 +10,11 @@ class PagesController < ApplicationController
   def my_hires
     @user = current_user
     @my_borrowing = @user.listings
-    @my_loans = Listing.where(user_id: @user.id)
+    @my_listings = User.find(current_user.id).listings
 
+    @my_loans = User.find(current_user.id).listings
   end
+
+ 
 
 end
