@@ -21,8 +21,9 @@ class ListingsController < ApplicationController
     if user_signed_in? && current_user != nil
       @user_borrowing = User.find(current_user.id).listings
     end
-    # Pass current_listing.users.email
-
+    # Pass current listings email to user
+    @user_loaning_id = Listing.find(params[:id]).user_id
+    @user_email = User.find(@user_loaning_id).email
   end
 
   # GET /listings/new
