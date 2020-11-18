@@ -18,10 +18,9 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    # if Listing.find(current_user.id).users == nil
-    #   @user_borrowing = "8===D"
-    # end
-    @user_borrowing = User.find(current_user.id).listings
+    if user_signed_in? && current_user != nil
+      @user_borrowing = User.find(current_user.id).listings
+    end
   end
 
   # GET /listings/new
