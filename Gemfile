@@ -51,13 +51,21 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+## User authentication
 gem "devise", "~> 4.7"
 
+## Role allocation for users
 gem "rolify", "~> 5.3"
 
+## Image hosting for images of listings
 gem "cloudinary", "~> 1.18"
 gem "activestorage-cloudinary-service", "~> 0.2.3"
 
+## Environment variables
 gem "dotenv-rails", "~> 2.7"
 
+## Processing payments with PCI compliance
 gem "stripe", "~> 5.28"
+
+## Exporting ERD
+gem 'rails-erd', group: :development

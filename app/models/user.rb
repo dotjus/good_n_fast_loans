@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :loans
   has_many :listings, through: :loans
 
+  # validates :email, 
+
   def assign_default_role
     self.add_role(:client)
   end

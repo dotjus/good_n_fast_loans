@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :duration %>
-    <%= form.text_field :duration %>
+    <%= form.text_field :duration, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :cost %>
-    <%= form.number_field :cost, min:0 %>
+    <%= form.number_field :cost, min:0, required: true %>
   </div>
 
   <div class="field">
@@ -39,27 +39,27 @@
 
   <div class="field">
     <%= form.label :street_number %>
-    <%= form.number_field :street_number, min:0 %>
+    <%= form.number_field :street_number, min:0, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :street_name %>
-    <%= form.text_field :street_name %>
+    <%= form.text_field :street_name, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :postcode %>
-    <%= form.number_field :postcode %>
+    <%= form.number_field :postcode, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.text_field :state, required: true %>
   </div>
 
   <div>
